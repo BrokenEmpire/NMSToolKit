@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Application">
+      <UniqueIdentifier>{122bcf7c-0267-417e-a8ac-a042f776bd34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Camera">
+      <UniqueIdentifier>{2cfea603-a4a5-4579-bcfe-dc55235817d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DrawableObjects">
+      <UniqueIdentifier>{acfea1d9-f466-43eb-82a2-5a971822f259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{875560df-ff27-4fae-af23-fc0be9bdaa66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{4a615830-4f47-445f-a395-e2c3687cd837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DrawableObjects">
+      <UniqueIdentifier>{2d9da803-abd2-4fac-95ed-c16c54e55dbb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NMSToolKitUI.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiApplication.hpp">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="PickableApplication.hpp">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.hpp">
+      <Filter>Header Files\DrawableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PickableObject.hpp">
+      <Filter>Header Files\DrawableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatShaderObject.hpp">
+      <Filter>Header Files\DrawableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcBall.hpp">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcBallCamera.hpp">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuizmo.hpp">
+      <Filter>Header Files\DrawableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl2Application.hpp">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NMSToolKitUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcBall.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="PickableObject.cpp">
+      <Filter>Source Files\DrawableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Source Files\DrawableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiApplication.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="PickableApplication.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuizmo.cpp">
+      <Filter>Source Files\DrawableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl2Application.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
