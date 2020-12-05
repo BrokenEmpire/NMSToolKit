@@ -80,7 +80,7 @@
       <AdditionalIncludeDirectories>$(VcpkgIncludePath);$(VcpkgIncludePath)\SDL2;$(VcpkgIncludePath)\MagnumExternal\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </Midl>
     <Link>
-      <AdditionalDependencies>SDL2d.lib;CorradeMain-d.lib;CorradeUtility-d.lib;CorradePluginManager-d.lib;Magnum-d.lib;MagnumGL-d.lib;MagnumTrade-d.lib;MagnumPrimitives-d.lib;MagnumShaders-d.lib;MagnumDebugTools-d.lib;MagnumMeshTools-d.lib;MagnumSceneGraph-d.lib;MagnumSdl2Application-d.lib;MagnumImGuiIntegration-d.lib;imguid.lib;winmm.lib;imm32.lib;version.lib;setupapi.lib;dinput8.lib;opengl32.lib;%(AdditionalDependencies);-ENTRY:wWinMainCRTStartup</AdditionalDependencies>
+      <AdditionalDependencies>SDL2d.lib;CorradeMain-d.lib;CorradeUtility-d.lib;CorradePluginManager-d.lib;Magnum-d.lib;MagnumGL-d.lib;MagnumTrade-d.lib;MagnumPrimitives-d.lib;MagnumShaders-d.lib;MagnumDebugTools-d.lib;MagnumMeshTools-d.lib;MagnumSceneGraph-d.lib;MagnumSdl2Application-d.lib;MagnumImGuiIntegration-d.lib;imguid.lib;winmm.lib;imm32.lib;version.lib;setupapi.lib;dinput8.lib;opengl32.lib;simdjson.lib;%(AdditionalDependencies);-ENTRY:wWinMainCRTStartup</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(VcpkgLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -88,13 +88,6 @@
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
-    <PostBuildEvent>
-      <Command>"$(SolutionDir)CopyDependencies.bat" $(VcpkgBinPath) $(OutDir)</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -134,7 +127,14 @@
     <ClInclude Include="NMSToolKitUI.hpp" />
     <ClInclude Include="PickableApplication.hpp" />
     <ClInclude Include="PickableObject.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Sdl2Application.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMSToolKit.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="NMSToolKit.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

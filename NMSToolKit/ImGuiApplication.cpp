@@ -3,34 +3,24 @@
 
 namespace NMSToolKit
 {
-    /****************************************************************************************************/
-    ImGuiApplication::ImGuiApplication(const std::string& title, const Arguments& arguments,
-                                       const Vector2i& defaultWindowSize) :
-        Sdl2Application{title, arguments, defaultWindowSize}
+    ImGuiApplication::ImGuiApplication(const std::string& title, const Arguments& arguments, const Vector2i& defaultWindowSize)
+        : Sdl2Application{title, arguments, defaultWindowSize}
     {
         /* Setup ImGui and ImGuizmo */
-        m_ImGuiContext = ImGuiIntegration::Context(Vector2{windowSize()} / dpiScaling(),
-                                                   windowSize(), framebufferSize());
+        m_ImGuiContext = ImGuiIntegration::Context(Vector2{windowSize()} / dpiScaling(), windowSize(), framebufferSize());
         ImGui::StyleColorsDark();
 
-        /* Setup proper blending to be used by ImGui. There's a great chance
-           you'll need this exact behavior for the rest of your scene. If not, set
-           this only for the drawFrame() call. */
-        GL::Renderer::setBlendFunction(GL::Renderer::BlendFunction::SourceAlpha,
-                                       GL::Renderer::BlendFunction::OneMinusSourceAlpha);
+        GL::Renderer::setBlendFunction(GL::Renderer::BlendFunction::SourceAlpha, GL::Renderer::BlendFunction::OneMinusSourceAlpha);
     }
 
-    /****************************************************************************************************/
     void ImGuiApplication::viewportEvent(ViewportEvent& event)
     {
         Sdl2Application::viewportEvent(event);
 
         /* Relayout ImGui */
-        m_ImGuiContext.relayout(Vector2{event.windowSize()} / event.dpiScaling(),
-                                event.windowSize(), event.framebufferSize());
+        m_ImGuiContext.relayout(Vector2{event.windowSize()} / event.dpiScaling(), event.windowSize(), event.framebufferSize());
     }
 
-    /****************************************************************************************************/
     void ImGuiApplication::keyPressEvent(KeyEvent& event)
     {
         if (m_ImGuiContext.handleKeyPressEvent(event))
@@ -59,7 +49,6 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
     void ImGuiApplication::mousePressEvent(MouseEvent& event)
     {
         if (m_ImGuiContext.handleMousePressEvent(event))
@@ -72,7 +61,7 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
+   
     void ImGuiApplication::mouseReleaseEvent(MouseEvent& event)
     {
         if (m_ImGuiContext.handleMouseReleaseEvent(event))
@@ -81,7 +70,7 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
+
     void ImGuiApplication::mouseMoveEvent(MouseMoveEvent& event)
     {
         if (m_ImGuiContext.handleMouseMoveEvent(event))
@@ -94,7 +83,7 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
+
     void ImGuiApplication::mouseScrollEvent(MouseScrollEvent& event)
     {
         if (m_ImGuiContext.handleMouseScrollEvent(event))
@@ -108,7 +97,6 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
     void ImGuiApplication::textInputEvent(TextInputEvent& event)
     {
         if (m_ImGuiContext.handleTextInputEvent(event))
@@ -117,7 +105,6 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
     void ImGuiApplication::beginFrame()
     {
         m_ImGuiContext.newFrame();
@@ -132,7 +119,7 @@ namespace NMSToolKit
         }
     }
 
-    /****************************************************************************************************/
+
     void ImGuiApplication::endFrame()
     {
         /* Update application cursor */
@@ -153,7 +140,7 @@ namespace NMSToolKit
         GL::Renderer::disable(GL::Renderer::Feature::Blending);
     }
 
-    /****************************************************************************************************/
+
     void ImGuiApplication::showMenuHeader()
     {
         ImGui::SetNextWindowBgAlpha(0.5f);

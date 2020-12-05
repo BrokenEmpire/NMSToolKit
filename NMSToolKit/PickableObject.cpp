@@ -46,7 +46,7 @@ namespace NMSToolKit
             .setAmbientColor(m_bSelected ? m_Color * 0.3f : Color3{})
             .setDiffuseColor(m_Color * (m_bSelected ? 2.0f : 1.0f))
             /* relative to the camera */
-            .setLightPositions({Vector4{directionalLight.up(), 0.0f}})
+            .setLightPositions({Vector4{13.0f, 2.0f, 5.0f, 0.0f}})
             .setObjectId(m_idx)
             .draw(m_Mesh);
     }

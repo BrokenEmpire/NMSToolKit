@@ -10,6 +10,8 @@ namespace NMSToolKit
 {
 	NMSToolKitUI::NMSToolKitUI(const Arguments& arguments) : PickableApplication{"No Man's Sky ToolKit", arguments}
 	{
+
+
 		m_MeshSphere = MeshTools::compile(Primitives::icosphereSolid(3));
 
 		for (size_t i = 0; i < 8; ++i)
@@ -17,12 +19,7 @@ namespace NMSToolKit
 			const Vector3 tmpPos = Vector3(std::rand(), std::rand(), std::rand()) / Float(RAND_MAX);
 
 			arrayAppend(m_Points, Containers::InPlaceInit, tmpPos * 2.0f - Vector3{1.0f});
-			arrayAppend(m_DrawablePoints, Containers::InPlaceInit,
-						new PickableObject{m_SphereShader,
-											Color3{ tmpPos },
-											m_MeshSphere,
-											&m_Scene,
-											&m_Drawables});
+			arrayAppend(m_DrawablePoints, Containers::InPlaceInit, new PickableObject{ m_SphereShader, Color3{ tmpPos }, m_MeshSphere, &m_Scene, &m_Drawables });
 
 			m_Points[i].y() += 1.0f;
 			m_DrawablePoints[i]->setTransformation(Matrix4::translation(m_Points[i]) * Matrix4::scaling(Vector3(0.05f)));

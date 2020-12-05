@@ -63,6 +63,9 @@
     <ClInclude Include="Sdl2Application.hpp">
       <Filter>Header Files\Application</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NMSToolKitUI.cpp">
@@ -89,5 +92,15 @@
     <ClCompile Include="Sdl2Application.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMSToolKit.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="NMSToolKit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
