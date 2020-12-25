@@ -10,11 +10,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6e235057-dd0e-44e3-ae68-d1082b346a95}</ProjectGuid>
-    <RootNamespace>NMSToolKit</RootNamespace>
+    <ProjectGuid>{ae1ae591-1b1e-4a5c-82bb-41cd0682e401}</ProjectGuid>
+    <RootNamespace>NMSToolKitConsoleApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <VcpkgEnabled>false</VcpkgEnabled>
     <VcpkgPath>D:\source\vcpkg</VcpkgPath>
@@ -55,7 +58,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(VcpkgIncludePath);$(VcpkgIncludePath)\SDL2;$(VcpkgIncludePath)\MagnumExternal\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VcpkgIncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4251;4244;4267;4351;4373;4510;4610;4512;4661;4702;4706;4800;4910</DisableSpecificWarnings>
@@ -66,22 +69,22 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;NOMINMAX;WIN32_LEAN_AND_MEAN;CORRADE_IS_DEBUG_BUILD;UNICODE;_UNICODE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_CXX17_UNCAUGHT_EXCEPTION_DEPRECATION_WARNING;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_DEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;NOMINMAX;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;NOMINMAX;WIN32_LEAN_AND_MEAN;CORRADE_IS_DEBUG_BUILD;UNICODE;_UNICODE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(VcpkgIncludePath);$(VcpkgIncludePath)\SDL2;$(VcpkgIncludePath)\MagnumExternal\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VcpkgIncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;NOMINMAX;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(VcpkgIncludePath);$(VcpkgIncludePath)\SDL2;$(VcpkgIncludePath)\MagnumExternal\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VcpkgIncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </Midl>
     <Link>
-      <AdditionalDependencies>SDL2d.lib;CorradeMain-d.lib;CorradeUtility-d.lib;CorradePluginManager-d.lib;Magnum-d.lib;MagnumGL-d.lib;MagnumTrade-d.lib;MagnumPrimitives-d.lib;MagnumShaders-d.lib;MagnumDebugTools-d.lib;MagnumMeshTools-d.lib;MagnumSceneGraph-d.lib;MagnumSdl2Application-d.lib;MagnumImGuiIntegration-d.lib;imguid.lib;winmm.lib;imm32.lib;version.lib;setupapi.lib;dinput8.lib;opengl32.lib;%(AdditionalDependencies);-ENTRY:wWinMainCRTStartup</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(VcpkgLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ProjectReference>
@@ -90,7 +93,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(VcpkgIncludePath);$(VcpkgIncludePath)\SDL2;$(VcpkgIncludePath)\MagnumExternal\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -99,42 +101,12 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(VcpkgLibPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="ArcBall.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="ImGuiApplication.cpp" />
-    <ClCompile Include="ImGuizmo.cpp" />
-    <ClCompile Include="NMSToolKitUI.cpp" />
-    <ClCompile Include="PickableApplication.cpp" />
-    <ClCompile Include="PickableObject.cpp" />
-    <ClCompile Include="Sdl2Application.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ArcBall.hpp" />
-    <ClInclude Include="ArcBallCamera.hpp" />
-    <ClInclude Include="FlatShaderObject.hpp" />
-    <ClInclude Include="Grid.hpp" />
-    <ClInclude Include="ImGuiApplication.hpp" />
-    <ClInclude Include="ImGuizmo.hpp" />
-    <ClInclude Include="NMSToolKitUI.hpp" />
-    <ClInclude Include="PickableApplication.hpp" />
-    <ClInclude Include="PickableObject.hpp" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="Sdl2Application.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="NMSToolKit.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="NMSToolKit.ico" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

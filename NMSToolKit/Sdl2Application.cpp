@@ -12,25 +12,22 @@ namespace NMSToolKit
 
 	Sdl2Application::Sdl2Application(const std::string& title, const Arguments& arguments, const Vector2i& defaultWindowSize) : Platform::Application{arguments, NoCreate}
 	{
-		/* Disable OpenGL debug info */
 		Debug suppressOutput{nullptr};
 		(void)suppressOutput;
 
-		/* Setup window */
 		create(Configuration{}
 			   .setTitle(title)
 			   .setSize(defaultWindowSize)
 			   .setWindowFlags(Configuration::WindowFlag::Resizable),
 			   GLConfiguration{}.setSampleCount(this->dpiScaling({}).max() < 2.0f ? 8 : 2));
+
 		MAGNUM_ASSERT_GL_VERSION_SUPPORTED(GL::Version::GL330);
 		GL::Renderer::enable(GL::Renderer::Feature::DepthTest);
+		GL::Renderer::enable(GL::Renderer::Feature::FaceCulling);
 		GL::Renderer::setClearColor(m_BkgColor);
 		setSwapInterval(1);
 
-		/* Setup scene objects and camera */
 		m_Grid.emplace(&m_Scene, &m_Drawables);
-
-		/* Configure camera */
 		setupCamera();
 	}
 
@@ -38,14 +35,11 @@ namespace NMSToolKit
 	{
 		const auto newBufferSize = event.framebufferSize();
 
-		/* Resize the main framebuffer */
 		GL::defaultFramebuffer.setViewport({{}, newBufferSize});
 
-		/* Resize camera */
 		m_Camera->reshape(event.windowSize(), event.framebufferSize());
 	}
 
-	/****************************************************************************************************/
 	void Sdl2Application::keyPressEvent(KeyEvent& event)
 	{
 		switch (event.key())
@@ -75,13 +69,11 @@ namespace NMSToolKit
 		}
 	}
 
-	/****************************************************************************************************/
 	void Sdl2Application::mousePressEvent(MouseEvent& event)
 	{
 		m_Camera->initTransformation(event.position());
 	}
 
-	/****************************************************************************************************/
 	void Sdl2Application::mouseMoveEvent(MouseMoveEvent& event)
 	{
 		if (!event.buttons())
@@ -99,7 +91,6 @@ namespace NMSToolKit
 		event.setAccepted();
 	}
 
-	/****************************************************************************************************/
 	void Sdl2Application::mouseScrollEvent(MouseScrollEvent& event)
 	{
 		const float delta = event.offset().y();
@@ -111,7 +102,6 @@ namespace NMSToolKit
 		event.setAccepted();
 	}
 
-	/****************************************************************************************************/
 	void Sdl2Application::setupCamera()
 	{
 		m_Camera.emplace(m_Scene, m_DefaultCamPosition, m_DefaultCamTarget, Vector3::yAxis(), 45.0_degf, windowSize(), framebufferSize());

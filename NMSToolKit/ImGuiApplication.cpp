@@ -6,18 +6,16 @@ namespace NMSToolKit
     ImGuiApplication::ImGuiApplication(const std::string& title, const Arguments& arguments, const Vector2i& defaultWindowSize)
         : Sdl2Application{title, arguments, defaultWindowSize}
     {
-        /* Setup ImGui and ImGuizmo */
         m_ImGuiContext = ImGuiIntegration::Context(Vector2{windowSize()} / dpiScaling(), windowSize(), framebufferSize());
         ImGui::StyleColorsDark();
 
+        GL::Renderer::setBlendEquation(GL::Renderer::BlendEquation::Add, GL::Renderer::BlendEquation::Add);
         GL::Renderer::setBlendFunction(GL::Renderer::BlendFunction::SourceAlpha, GL::Renderer::BlendFunction::OneMinusSourceAlpha);
     }
 
     void ImGuiApplication::viewportEvent(ViewportEvent& event)
     {
         Sdl2Application::viewportEvent(event);
-
-        /* Relayout ImGui */
         m_ImGuiContext.relayout(Vector2{event.windowSize()} / event.dpiScaling(), event.windowSize(), event.framebufferSize());
     }
 
@@ -61,7 +59,6 @@ namespace NMSToolKit
         }
     }
 
-   
     void ImGuiApplication::mouseReleaseEvent(MouseEvent& event)
     {
         if (m_ImGuiContext.handleMouseReleaseEvent(event))
@@ -69,7 +66,6 @@ namespace NMSToolKit
             event.setAccepted(true);
         }
     }
-
 
     void ImGuiApplication::mouseMoveEvent(MouseMoveEvent& event)
     {
@@ -82,7 +78,6 @@ namespace NMSToolKit
             Sdl2Application::mouseMoveEvent(event);
         }
     }
-
 
     void ImGuiApplication::mouseScrollEvent(MouseScrollEvent& event)
     {
@@ -118,7 +113,6 @@ namespace NMSToolKit
             stopTextInput();
         }
     }
-
 
     void ImGuiApplication::endFrame()
     {

@@ -13,7 +13,7 @@ namespace NMSToolKit
 	{
 	public:
 		explicit Sdl2Application(const std::string& title, const Arguments& arguments,
-								 const Vector2i& defaultWindowSize = Vector2i{1920, 1080});
+								 const Vector2i& defaultWindowSize = Vector2i { 1920, 1080 });
 
 		virtual ~Sdl2Application() { }
 
@@ -26,7 +26,7 @@ namespace NMSToolKit
 
 		void setupCamera();
 
-		bool m_bVsync{true};
+		bool m_bVsync { true };
 		Color3 m_BkgColor { 0.175f, 0.175f, 0.19f };
 
 		/* Scene and drawable group */
@@ -37,8 +37,8 @@ namespace NMSToolKit
 		Containers::Pointer<Grid> m_Grid;
 
 		/* Camera helpers */
-		Vector3 m_DefaultCamPosition{0.0f, 1.5f, 8.0f};
-		Vector3 m_DefaultCamTarget{0.0f, 1.0f, 0.0f};
+		Vector3 m_DefaultCamPosition { 0.0f, 1.5f, 8.0f };
+		Vector3 m_DefaultCamTarget { 0.0f, 1.0f, 0.0f };
 		Containers::Pointer<ArcBallCamera> m_Camera;
 	};
 }
