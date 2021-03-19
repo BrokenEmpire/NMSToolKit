@@ -17,9 +17,9 @@
     <RootNamespace>NMSToolKit</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <VcpkgEnabled>false</VcpkgEnabled>
-    <VcpkgPath>D:\source\vcpkg</VcpkgPath>
-    <VcpkgIncludePath>$(VCPkgPath)\installed\x64-windows\include</VcpkgIncludePath>
-  </PropertyGroup>
+	<VCPkgPath>$(VCPKG_PATH)</VCPkgPath>
+    <VcpkgIncludePath>$(VCPkgPath)\installed\x64-windows\include</VcpkgIncludePath>  
+</PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
